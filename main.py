@@ -74,8 +74,7 @@ def main():
 
     # User input
     text_input = st.text_area("Enter text:")
-    uploaded_file = st.file_uploader(
-        "Upload an image", type=["jpg", "jpeg", "png"])
+
 
     # Check Offense button
     if st.button("Check Offense"):
@@ -91,27 +90,12 @@ def main():
             st.write(f"**Result:** {result}")
 
 
-def detect_offensive_content(text_input, uploaded_file):
-    if uploaded_file is not None:
-        # Image is uploaded, perform image captioning (replace with your logic)
-        image_caption = generate_image_caption(uploaded_file)
-
-        # Perform offensive content detection on the generated text
-        result = perform_offensive_content_detection(image_caption)
-
-    else:
-        # No image uploaded, perform offensive content detection on the text
-        result = perform_offensive_content_detection(text_input)
+def detect_offensive_content(text_input):
+    result = perform_offensive_content_detection(text_input)
 
     return result
 
 
-def generate_image_caption(uploaded_image):
-    # Implement image captioning logic (replace with your logic)
-    # ...
-
-    # For now, return a placeholder caption
-    return "A placeholder image caption."
 
 
 def perform_offensive_content_detection(text):
